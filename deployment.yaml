@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loan-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loan-app
+  template:
+    metadata:
+      labels:
+        app: loan-app
+    spec:
+      containers:
+      - name: app
+        image: nginxinc/nginx-unprivileged
+        ports:
+        - containerPort: 8080
